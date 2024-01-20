@@ -1,0 +1,39 @@
+#Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dozie
+  labels:
+    app: dozie
+spec:
+ replicas: 4
+ selector:
+   matchLabels:
+     app: dozie
+ template:
+   metadata:
+     labels:
+       app: dozie
+   spec:
+     containers:
+     - name: dozie-con
+       image: mobanntechnologies/sept23-set:01062024
+       ports:
+       - containerPort: 8080
+
+---
+#Service Type nodePort
+apiVersion: v1
+kind: Service
+metadata:
+  name: dozie
+  labels:
+    app: dozie
+spec:
+  selector:
+    app: dozie
+  type: NodePort
+  ports:
+  - nodePort: 32100
+    port: 8080
+    targetPort: 8080
