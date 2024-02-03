@@ -182,13 +182,5 @@
     <maven>3.0.3</maven>
   </prerequisites>
 
-<distributionManagement>
-    <repository>
-        <id>central</id>
-        <name>ip-172-31-26-229.us-east-2.compute.internal-releases</name>
-        <url>http://3.141.177.57:8082/artifactory/sept23-libs-release-local</url>
-    </repository>
-</distributionManagement>
-
 </project>
 

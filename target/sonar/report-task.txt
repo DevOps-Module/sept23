@@ -2,5 +2,5 @@ projectKey=sept23
 serverUrl=http://3.141.177.57:9000
 serverVersion=9.4.0.54424
 dashboardUrl=http://3.141.177.57:9000/dashboard?id=sept23
-ceTaskId=AYzgmtNrBTE9kc7HUOE4
-ceTaskUrl=http://3.141.177.57:9000/api/ce/task?id=AYzgmtNrBTE9kc7HUOE4
+ceTaskId=AY1RrJ2kHn_6un4rWlvm
+ceTaskUrl=http://3.141.177.57:9000/api/ce/task?id=AY1RrJ2kHn_6un4rWlvm
