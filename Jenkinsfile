@@ -36,49 +36,6 @@ pipeline {
             }
       }
 
-    stage ('Artifactory configuration') {
-            steps {
-                rtServer (
-                    id: "jfrog",
-                    url: "http://3.141.177.57:8082/artifactory",
-                    credentialsId: "jfrog"
-                )
-
-                rtMavenDeployer (
-                    id: "MAVEN_DEPLOYER",
-                    serverId: "jfrog",
-                    releaseRepo: "sept23-libs-release-local",
-                    snapshotRepo: "sept23-libs-snapshot-local"
-                )
-
-                rtMavenResolver (
-                    id: "MAVEN_RESOLVER",
-                    serverId: "jfrog",
-                    releaseRepo: "sept23-libs-release",
-                    snapshotRepo: "sept23-libs-snapshot"
-                )
-            }
-    }
-
-    stage ('Deploy Artifacts') {
-            steps {
-                rtMavenRun (
-                    tool: "MAVEN", // Tool name from Jenkins configuration
-                    pom: 'webapp/pom.xml',
-                    goals: 'clean install',
-                    deployerId: "MAVEN_DEPLOYER",
-                    resolverId: "MAVEN_RESOLVER"
-                )
-         }
-    }
-
-    stage ('Publish build info') {
-            steps {
-                rtPublishBuildInfo (
-                    serverId: "jfrog"
-             )
-        }
-    }
 
     stage('Copy Dockerfile & Playbook to Staging Server') {
             
